@@ -1,0 +1,5 @@
+2 > strdup
+3 > printf
+4 > printf
+5 > replace the address of exit in the GOT (Global Offset Table) with the address of "o"
+6 > call n() on ret
