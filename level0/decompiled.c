@@ -1,39 +1,23 @@
-/* jsdec pseudo code output */
-/* /Users/tvarnier/42/import/level0 @ 0x8048ec0 */
-#include <stdint.h>
- 
-int32_t main (char ** envp) {
-    int32_t var_4h;
-    int32_t var_8h;
-    int32_t var_ch;
-    int32_t var_10h;
-    int32_t var_14h;
-    uid_t var_18h;
-    int32_t var_1ch;
-    eax = envp;
-    eax += 4;
-    eax = *(eax);
-    eax = atoi (eax);
-    if (eax == 0x1a7) {                                 // eax == 423 ?
-        eax = _strdup ("/bin/sh");
-        eax = getegid (eax, 0);
-        eax = geteuid (eax);
-        eax = var_1ch;
-        eax = var_1ch;
-        eax = var_1ch;
-        _setresgid (eax, eax, var_1ch, var_1ch);
-        eax = var_18h;
-        eax = var_18h;
-        eax = var_18h;
-        setresuid (eax, var_18h, var_18h);
-        eax = &var_10h;
-        execv ("/bin/sh", eax);
-    } else {
-        eax = *(stderr);
-        edx = *(stderr);
-        eax = "No !\n";
-        _IO_fwrite (eax, edx, 5, 1);
+int main (int ac, char **av) {
+    int     nb;
+    char    *cmd[2];
+    gid_t	gid;
+	uid_t	uid;
+
+    nb = atoi (av[1]);
+    if (nb == 0x1a7) {
+        cmd[0] = strdup("/bin/sh");
+		cmd[1] = NULL;
+
+		gid = getegid();
+		uid = geteuid();
+
+		setresgid(gid, gid, gid);
+		setresuid(uid, uid, uid);
+
+		execv("/bin/sh", cmd);
     }
-    eax = 0;
-    return eax;
+    else
+        fwrite("No !\n", 5, 1, stderr);
+    return 0;
 }

