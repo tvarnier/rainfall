@@ -3,3 +3,44 @@
 4 > printf
 5 > replace the address of exit in the GOT (Global Offset Table) with the address of "o"
 6 > call n() on ret
+
+	Pile		- variables locales
+	 |		- contexte de fonctions
+	 |		- taille variable (limitee)
+	 | 		- remplissage vers le haut du tas
+--------------------
+ 	 |
+	 v
+    bibliotheques
+	 ^
+	 |
+--------------------
+	 |		- allocations dynamiques
+	 |		- taille variable (pas de limite)
+	Tas		- remplissage veres la pile
+____________________
+	.bss	     <--- donnees non initialisees 	| - variables globales & statiques
+____________________					| - taille fixe
+	.data 	     <--- donnees initialisees		| - ecriture possible
+____________________
+	.text		- code (instructions)
+			- taille fixe
+			- lecture seule
+
+
+r0 	AX <- Accumulateur
+	CX <- Compteur
+	DX <- Donnees
+	BX <- Base
+	SP <- Pointeur pile
+	BP <- Pointeur base
+	SI <- indice source
+r7	DI < indice destination
+
+32 bits -> E(AX)
+64 bits -> R(AX)
+
+r15  64 bits	
+r15d 32 bits
+r15w 16 bits
+r15b 8 bits
