@@ -22,7 +22,7 @@ All defined functions:
 ```
 
 ```
-evel6@RainFall:~$ ltrace ./level6 42
+level6@RainFall:~$ ltrace ./level6 42
 __libc_start_main(0x804847c, 2, 0xbffff7f4, 0x80484e0, 0x8048550 <unfinished ...>
 malloc(64)                                                                                = 0x0804a008
 malloc(4)                                                                                 = 0x0804a050
