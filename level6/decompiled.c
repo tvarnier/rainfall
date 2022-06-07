@@ -1,29 +1,21 @@
-void m (void) {
-    puts ("Nope");
-}
-
 void n (void) {
     system ("/bin/cat /home/user/level7/.pass");
 }
 
-int32_t main (char ** envp) {
-    const char * src;
-    void * var_18h;
-    char * dest;
-    eax = malloc (0x40);
-    eax = malloc (4, eax);
-    var_18h = eax;
-    edx = m;
-    eax = var_18h;
-    *(eax) = edx;
-    eax = envp;
-    eax += 4;
-    eax = *(eax);
-    edx = *(eax);
-    eax = dest;
-    strcpy (eax, edx);
-    eax = var_18h;
-    eax = *(eax);
-    void (*eax)() ();
-    return eax;
+void m (void) {
+    puts ("Nope");
+}
+
+int main (int ac, char **av) {
+    char *str;
+    void (*fct)(void);
+
+    str = (char *)malloc(64);
+    fct = (void **)malloc(4);
+
+    fct = &m;
+    strcpy(str, av[1]);
+
+    fct();
+    return 0;
 }
