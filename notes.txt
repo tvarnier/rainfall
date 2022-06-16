@@ -1,13 +1,7 @@
-2 > strdup
-3 > printf
-4 > printf
-5 > replace the address of exit in the GOT (Global Offset Table) with the address of "o"
-6 > call n() on ret
-
 	Pile		- variables locales
-	 |		- contexte de fonctions
-	 |		- taille variable (limitee)
-	 | 		- remplissage vers le haut du tas
+	 |			- contexte de fonctions
+	 |			- taille variable (limitee)
+	 | 			- remplissage vers le haut du tas
 --------------------
  	 |
 	 v
@@ -15,17 +9,17 @@
 	 ^
 	 |
 --------------------
-	 |		- allocations dynamiques
-	 |		- taille variable (pas de limite)
-	Tas		- remplissage veres la pile
+	 |			- allocations dynamiques
+	 |			- taille variable (pas de limite)
+	Tas			- remplissage veres la pile
 ____________________
 	.bss	     <--- donnees non initialisees 	| - variables globales & statiques
 ____________________					| - taille fixe
 	.data 	     <--- donnees initialisees		| - ecriture possible
 ____________________
 	.text		- code (instructions)
-			- taille fixe
-			- lecture seule
+				- taille fixe
+				- lecture seule
 
 
 r0 	AX <- Accumulateur
