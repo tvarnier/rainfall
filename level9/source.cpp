@@ -1,5 +1,5 @@
 class N {
-	char str[100];
+	char str[0x68]; //104
 	int nbr;
 
 	N(int nbr) {

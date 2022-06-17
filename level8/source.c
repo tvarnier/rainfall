@@ -3,13 +3,13 @@ char	*service;
 
 int		main(void)
 {
-	char	buf[0x80];
+	char	buf[0x80]; // 128
 	
 	while (1)
 	{
 		printf("%p, %p\n", auth, service);
 
-		if (fgets(buf, 128, stdin) == 0)
+		if (fgets(buf, 0x80, stdin) == 0) // 128
 			break ;
 		
         if (strncmp(buf, "auth ", 5) == 0)
@@ -24,7 +24,7 @@ int		main(void)
 			service = strdup(buf + 7);
 		if (strncmp(buf, "login", 5) == 0)
 		{
-			if (auth[0x20] != 0)
+			if (auth[0x20] != 0) // 32
 				system("/bin/sh");
 			else
 				fwrite("Password:\n", 10, 1, stdout);

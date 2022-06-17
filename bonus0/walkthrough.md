@@ -1,3 +1,11 @@
+# **Bonus0**
+
+## **Analysis**
+
+___
+
+## **Exploit**
+
 OFFSET: 9
 
 ```
@@ -35,3 +43,7 @@ bonus1
 cat /home/user/bonus1/.pass
 cd1f77a585965341c37a1774a1d1686326e1fc53aaa5459c840409d4d06523c9
 ```
+
+___
+
+*Password: f3f0004b6f364cb5a4147e9ef827fa922a4861408845c26b6971ad770d906728*
