@@ -1,6 +1,6 @@
-# Level6
+# **Level6**
 
-## Analysis
+## **Analysis**
 
 **In `main()`:**
 
@@ -29,7 +29,7 @@ System call to print the `.pass`
 
 ___
 
-## Exploit
+## **Exploit**
 
 If we change the pointer to function from `m()` adress -> `n()` adress using the `strcpy()`,
 That'll do it

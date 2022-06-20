@@ -1,6 +1,6 @@
-# Level4
+# **Level4**
 
-## Analysis
+## **Analysis**
 
 **In `main` :**
 
@@ -27,7 +27,7 @@ and then it calls a `system("/bin/sh")` if the global variable `m` equal `0x1025
 ```
 ___
 
-## Exploit
+## **Exploit**
 
 If we try to store a buffer `ABCD`, its done on the twelfth position
 ```

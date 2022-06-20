@@ -1,6 +1,6 @@
-# Level7
+# **Level7**
 
-## Analysis
+## **Analysis**
 
 **In `main()`:**
 
@@ -29,7 +29,7 @@ All defined functions:
 ```
 ___
 
-## Exploit
+## **Exploit**
 
 We'll change the first instruction of `puts()` to call `m()`
 

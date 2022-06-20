@@ -1,6 +1,6 @@
-# Level0
+# **Level0**
 
-## Analysis
+## **Analysis**
 
 **In `main` :**
 
@@ -9,7 +9,7 @@ If it does, it open a shell with `level1` access
 
 ___
 
-## Exploit
+## **Exploit**
 
 ```bash
 level0@RainFall:~$ ./level0 423

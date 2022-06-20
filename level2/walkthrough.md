@@ -1,6 +1,6 @@
-# Level2
+# **Level2**
 
-## Analysis
+## **Analysis**
 
 **In `main` :**
 
@@ -23,7 +23,7 @@ strdup("42")                = 0x0804a008
 
 ___
 
-## Exploit
+## **Exploit**
 
 Determine the offset of `eip` => 80
 ```

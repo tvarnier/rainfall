@@ -1,6 +1,6 @@
-# Level8
+# **Level8**
 
-## Analysis
+## **Analysis**
 
 **In `main()`:**
 
@@ -40,7 +40,7 @@
 
 ___
 
-## Exploit
+## **Exploit**
 
 So we need to create auth and have at least **`32`** characters in it but its limited to **`30`**
 

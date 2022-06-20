@@ -1,6 +1,6 @@
-# Level3
+# **Level3**
 
-## Analysis
+## **Analysis**
 
 **In `main` :**
 
@@ -27,7 +27,7 @@ and then it calls a `system("/bin/sh")` if the global variable `m` equal `0x40`
 ```
 ___
 
-## Exploit
+## **Exploit**
 
 Testing the printf
 ```
