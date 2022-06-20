@@ -13,3 +13,4 @@ else :
         c = chr(ord(c) + 1)
         if c == '[':
             c = 'a'
+    print("")
