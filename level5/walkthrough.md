@@ -39,8 +39,11 @@ All defined functions:
 0x08048504  main
 ...
 
-(gdb) x 0x080483d0
-   0x80483d0 <exit@plt>:        jmp    *0x8049838
+(gdb) disas exit
+Dump of assembler code for function exit@plt:
+   0x080483d0 <+0>:     jmp    *0x8049838
+   0x080483d6 <+6>:     push   $0x28
+   0x080483db <+11>:    jmp    0x8048370
 ```
 
 ___
